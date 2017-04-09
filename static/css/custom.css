@@ -1,3 +1,10 @@
-.box {
-    background: #f8f8f8;
+.content {
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.card-block {
+    padding: 5px;
+    color: #555;
+    font-size: 14px;
 }
