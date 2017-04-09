@@ -28,6 +28,21 @@ class Content(models.Model):
 
     author = models.ForeignKey(User)
 
+    @property
+    def total_comment(self) -> int:
+        """Get total comment in content"""
+        return UserComment.objects.filter(content=self.id).count()
+
+    @property
+    def total_view(self) -> int:
+        """Get total view in content"""
+        return UserView.objects.filter(content=self.id).count()
+
+    @property
+    def total_like(self) -> int:
+        """Get total like in content"""
+        return UserLike.objects.filter(content=self.id).count()
+
 
 class UserComment(models.Model):
     text = models.CharField(max_length=500)
@@ -38,6 +53,12 @@ class UserComment(models.Model):
 
 
 class UserView(models.Model):
+    author = models.ForeignKey(User)
+
+    content = models.ForeignKey(Content)
+
+
+class UserLike(models.Model):
     author = models.ForeignKey(User)
 
     content = models.ForeignKey(Content)

@@ -51,23 +51,27 @@
     </div>
 </nav>
 <div class="container-fluid content">
-    <div class="col-md-3">
-        <div class="card">
-            <img class="card-img-top" src="https://mir-s3-cdn-cf.behance.net/projects/202/21550039.54732c9410bfc.png" alt="Card image cap">
-            <div class="card-block">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <i class="fa fa-eye" aria-hidden="true"></i> 3709
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-comment" aria-hidden="true"></i> 85237
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> 85237
+    <div class="row">
+        {% for content in contents %}
+        <div class="col-md-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ content.image_300x300.url }}" alt="{{ content.title }}">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <i class="fa fa-eye" aria-hidden="true"></i> {{ content.total_view }}
+                        </div>
+                        <div class="col-sm-4">
+                            <i class="fa fa-comment" aria-hidden="true"></i> {{ content.total_comment }}
+                        </div>
+                        <div class="col-sm-4">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{ content.total_like }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
