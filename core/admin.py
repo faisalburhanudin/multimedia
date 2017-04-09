@@ -14,7 +14,7 @@ class UserAdmin(admin.ModelAdmin):
 
 
 def content_img_tag(obj):
-    return mark_safe('<img src="%s" width="150" height="150" />' % obj.image_300x300.url)
+    return mark_safe('<img src="%s" width="150" height="150" />' % obj.image_160x160.url)
 
 
 class ContentAdmin(admin.ModelAdmin):

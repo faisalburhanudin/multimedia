@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Multimedia</title>
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-toggleable-md navbar-black>.n bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -53,10 +53,12 @@
 <div class="container-fluid content">
     <div class="row">
         {% for content in contents %}
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="card">
-                <img class="card-img-top" src="{{ content.image_300x300.url }}" alt="{{ content.title }}">
+                <img class="card-img-top" src="{{ content.image_160x160.url }}" alt="{{ content.title }}">
                 <div class="card-block">
+                    <h4 class="card-title">{{ content.title }}</h4>
+                    <p class="card-text">{{ content.description }}</p>
                     <div class="row">
                         <div class="col-sm-4">
                             <i class="fa fa-eye" aria-hidden="true"></i> {{ content.total_view }}
@@ -81,3 +83,4 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
+

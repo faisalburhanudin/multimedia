@@ -23,7 +23,7 @@ class Content(models.Model):
 
     image = models.ImageField(upload_to='images')
 
-    image_300x300 = ImageSpecField(source='image', processors=[ResizeToFill(300, 300)], format='JPEG',
+    image_160x160 = ImageSpecField(source='image', processors=[ResizeToFill(160, 160)], format='JPEG',
                                    options={'quality': 80})
 
     author = models.ForeignKey(User)
