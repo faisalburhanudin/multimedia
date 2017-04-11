@@ -3,6 +3,14 @@
     margin-top: 15px;
 }
 
+.card {
+    margin-bottom: 30px;
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
 .card-block {
     padding: 5px;
     color: #555;
