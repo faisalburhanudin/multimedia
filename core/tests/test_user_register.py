@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 
 from core.models import User
 
@@ -6,15 +6,12 @@ from core.models import User
 # Create your tests here.
 class UserRegisterTestCase(TestCase):
 
-    def setUp(self):
-        self.request = Client()
-
     def test_register_get(self):
-        response = self.request.get("/register")
+        response = self.client.get("/register")
         self.assertEqual(response.status_code, 200)
 
     def test_register_post(self):
-        response = self.request.post("/register", data={
+        response = self.client.post("/register", data={
             "name": "Muhamad Faisal Burhanudin",
             "password": "123456"
         })
