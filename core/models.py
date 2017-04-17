@@ -1,11 +1,12 @@
+from django.contrib.auth.models import User
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
 
-class User(models.Model):
+class UserInfo(models.Model):
     """User models detail"""
-    name = models.CharField(max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     avatar = models.ImageField(upload_to='avatars')
 
