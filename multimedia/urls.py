@@ -16,12 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
-from core import views
+
+from core.views import home, user_register, user_login, content_upload
 from multimedia import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home)
+    url(r'^$', home.home),
+    url(r'^register$', user_register.UserRegister.as_view()),
+    url(r'^login', user_login.UserLoginView.as_view()),
+    url(r'^uploads', content_upload.ContentUploadView.as_view())
 ]
 
 if settings.DEBUG:
