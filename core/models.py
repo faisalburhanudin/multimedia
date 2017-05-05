@@ -27,6 +27,9 @@ class Content(models.Model):
     image_160x160 = ImageSpecField(source='image', processors=[ResizeToFill(160, 160)], format='JPEG',
                                    options={'quality': 80})
 
+    image_320x220 = ImageSpecField(source='image', processors=[ResizeToFill(320, 220)], format='JPEG',
+                                   options={'quality': 100})
+
     author = models.ForeignKey(User)
 
     @property
