@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>Material Kit by Creative Tim</title>
+    <title>Multimedia</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -83,12 +83,13 @@
                                     {{ content.title }}
                                 </h3>
                                 <p class="description">
-                                    You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                    You can write here details about one of your team members. You can give more details
+                                    about what they do. Feel free to add some
                                 </p>
                                 <button type="button" class="btn btn-round">
-                                        12
-                                        <i class="material-icons">comment</i>
-                                    </button>
+                                    12
+                                    <i class="material-icons">comment</i>
+                                </button>
                                 <button type="button" class="btn btn-round">
                                     1
                                     <i class="material-icons">favorite</i>
@@ -100,13 +101,17 @@
                     </div>
                 </div>
                 <ul class="pagination pagination-primary pull-right">
+                    {% if contents.has_previous %}
                     <li><a href="#"><</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li class="active"><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    {% endif %}
+                    <li class="active">
+                        <a href="#">
+                            {{ contents.number }}
+                        </a>
+                    </li>
+                    {% if contents.has_next %}
                     <li><a href="#">></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
