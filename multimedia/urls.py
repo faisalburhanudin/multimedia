@@ -23,7 +23,7 @@ from multimedia import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home.home),
-    url(r'^login', user_login.UserLoginView.as_view()),
+    url(r'^login', user_login.UserLoginView.as_view(), name='login'),
     url(r'^uploads', content_upload.ContentUploadView.as_view())
 ]
 
