@@ -13,7 +13,7 @@ def content_img_tag(obj):
 
 
 class ContentAdmin(admin.ModelAdmin):
-    list_display = ('title', content_img_tag)
+    list_display = ('title', content_img_tag, 'author')
 
 admin.site.register(Content, ContentAdmin)
 admin.site.register(UserInfo, )
