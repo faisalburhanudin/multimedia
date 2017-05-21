@@ -3,11 +3,34 @@
     <div class="row">
         <div class="profile">
             <div class="avatar">
-                <img src="{{ request.user.userinfo.avatar_150x150.url }}" alt="Circle Image" class="img-circle img-responsive img-raised" style="margin: 0 auto;">
+                <img src="{{ user.userinfo.avatar_150x150.url }}" alt="Circle Image" class="img-circle img-responsive img-raised" style="margin: 0 auto;">
             </div>
             <div class="name">
-                <h3 class="title text-center">{{ request.user.username }}</h3>
+                <h3 class="title text-center">{{ user.username }}</h3>
             </div>
         </div>
+        {% for content in contents %}
+            <div class="col-md-4" style="margin-bottom: 10px; text-align: center">
+                <img style="margin: 0 auto" class="img-rounded img-raised img-responsive"
+                     src="{{ content.image_320x220.url }}"
+                     alt="{{ content.title }}">
+                <h3 class="title">
+                    {{ content.title }}
+                </h3>
+                <p class="description">
+                    You can write here details about one of your team members. You can give more details
+                    about what they do. Feel free to add some
+                </p>
+                <button type="button" class="btn btn-round">
+                    12
+                    <i class="material-icons">comment</i>
+                </button>
+                <button type="button" class="btn btn-round">
+                    1
+                    <i class="material-icons">favorite</i>
+                </button>
+
+            </div>
+            {% endfor %}
     </div>
 {% endblock %}
