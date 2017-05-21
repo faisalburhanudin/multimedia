@@ -16,6 +16,9 @@ class UserInfo(models.Model):
     avatar_100x100 = ImageSpecField(source='avatar', processors=[ResizeToFill(100, 100)], format='JPEG',
                                     options={'quality': 60})
 
+    avatar_150x150 = ImageSpecField(source='avatar', processors=[ResizeToFill(150, 150)], format='JPEG',
+                                    options={'quality': 60})
+
 
 class Content(models.Model):
     title = models.CharField(max_length=80)
