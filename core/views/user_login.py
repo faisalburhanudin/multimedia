@@ -1,6 +1,6 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from django.contrib.auth.views import login
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 
 
@@ -17,5 +17,15 @@ class UserLoginView(View):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
+            return redirect("/")
+        else:
+            return render(request, "login.html", {"login_invalid": True})
 
-        return render(request, "login_success.html")
+
+def logout_view(request):
+    """Logout user
+    
+    Success logout and redirect to home
+    """
+    logout(request)
+    return redirect("/")
