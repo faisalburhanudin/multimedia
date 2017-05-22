@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <form class="form" method="post" action="">
+        <div class="header header-primary text-center">
+            <h4>Upload content</h4>
+        </div>
+
+        <div class="form-group label-floating">
+            <label class="control-label" for="title">Title</label>
+            <input name="title" type="text" class="form-control" id="title" required/>
+        </div>
+
+        <div class="form-group label-floating">
+            <label class="control-label" for="description">Description</label>
+            <input name="description" type="text" class="form-control" id="description" required>
+        </div>
+
+        <div class="form-group">
+            <label class="btn btn-default text-info" for="thumbnail">Thumbnail</label>
+            <input name="thumbnail" type="file" class="form-control" id="thumbnail" required>
+        </div>
+
+        <div class="form-group">
+            <label class="btn btn-default text-info" for="content">Content</label>
+            <input name="content" type="file" class="form-control" id="content" required>
+        </div>
+
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+{% endblock %}

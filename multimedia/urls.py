@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^$', home.home, name="home"),
     url(r'^login', user_login.UserLoginView.as_view(), name='login'),
     url(r'^logout', user_login.logout_view, name='logout'),
-    url(r'^uploads', content_upload.ContentUploadView.as_view()),
+    url(r'^uploads', content_upload.ContentUploadView.as_view(), name="upload"),
     url(r'^profile', profile.profile_view, name="profile")
 ]
 
