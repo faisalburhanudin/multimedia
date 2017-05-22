@@ -10,7 +10,7 @@
                      src="{{ content.image_320x220.url }}"
                      alt="{{ content.title }}">
                 <h3 class="title">
-                    {{ content.title }}
+                    <a href="{% url 'content' content_id=content.id %}">{{ content.title }}</a>
                 </h3>
                 <p class="description">
                     {{ content.description }}
