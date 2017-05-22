@@ -13,15 +13,17 @@
                     {{ content.title }}
                 </h3>
                 <p class="description">
-                    You can write here details about one of your team members. You can give more details
-                    about what they do. Feel free to add some
+                    {{ content.description }}
                 </p>
+                <h4>
+                    <a href="{% url 'profile' %}?username={{ content.author.username }}">{{ content.author.username }}</a>
+                </h4>
                 <button type="button" class="btn btn-round">
-                    12
+                    {{ content.total_comment }}
                     <i class="material-icons">comment</i>
                 </button>
                 <button type="button" class="btn btn-round">
-                    1
+                    {{ content.total_like }}
                     <i class="material-icons">favorite</i>
                 </button>
 
