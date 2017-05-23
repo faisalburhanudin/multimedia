@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-Ini content
+    <div class="row">
+        <div class="col-md-8">
+            <video width="100%" controls>
+                <source src="{{ content.attachment.url }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-md-4">
+            <h3 class="title" style="margin-top: 0;">
+                {{ content.title }}
+            </h3>
+            <p class="description">
+                {{ content.description }}
+            </p>
+            <h4>
+                <a href="{% url 'profile' %}?username={{ content.author.username }}">{{ content.author.username }}</a>
+            </h4>
+            <button type="button" class="btn btn-round">
+                {{ content.total_comment }}
+                <i class="material-icons">comment</i>
+            </button>
+            <button type="button" class="btn btn-round">
+                {{ content.total_like }}
+                <i class="material-icons">favorite</i>
+            </button>
+
+            <ul class="list-unstyled">
+                <li>komen 1</li>
+                <li>komen 2</li>
+                <li>komen 3</li>
+                <li>komen 4</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

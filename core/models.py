@@ -33,6 +33,8 @@ class Content(models.Model):
     image_320x220 = ImageSpecField(source='image', processors=[ResizeToFill(320, 220)], format='JPEG',
                                    options={'quality': 100})
 
+    attachment = models.FileField(upload_to='attachments')
+
     author = models.ForeignKey(User)
 
     @property
