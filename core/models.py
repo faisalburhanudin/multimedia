@@ -52,6 +52,9 @@ class Content(models.Model):
         """Get total like in content"""
         return UserLike.objects.filter(content=self.id).count()
 
+    def get_absolute_url(self):
+        return "/content/%i" % self.id
+
 
 class UserComment(models.Model):
     text = models.CharField(max_length=500)
