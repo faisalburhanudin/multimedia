@@ -15,7 +15,7 @@
                      src="{{ content.image_320x220.url }}"
                      alt="{{ content.title }}">
                 <h3 class="title">
-                    {{ content.title }}
+                    <a href="{{ content.get_absolute_url }}">{{ content.title }}</a>
                 </h3>
                 <p class="description">
                     {{ content.description }}
