@@ -25,11 +25,13 @@
                 <i class="material-icons">favorite</i>
             </button>
 
-            <ul class="list-unstyled">
-                <li>komen 1</li>
-                <li>komen 2</li>
-                <li>komen 3</li>
-                <li>komen 4</li>
+            <ul class="list-unstyled" style="margin-top: 20px;">
+                {% for comment in comments %}
+                    <li>
+                        <p>{{ comment.text }} <a href="" class="pull-right">{{ comment.author.username }}</a></p>
+                    <hr>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
