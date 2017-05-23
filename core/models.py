@@ -4,7 +4,7 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
 
-class UserInfo(models.Model):
+class Profile(models.Model):
     """User models detail"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -18,6 +18,9 @@ class UserInfo(models.Model):
 
     avatar_150x150 = ImageSpecField(source='avatar', processors=[ResizeToFill(150, 150)], format='JPEG',
                                     options={'quality': 60})
+
+    def __str__(self):
+        return self.user.username
 
 
 class Content(models.Model):

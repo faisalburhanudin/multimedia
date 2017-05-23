@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from core.models import Content, UserInfo, UserComment
+from core.models import Content, Profile, UserComment
 
 
 def avatar_tag(obj):
@@ -21,5 +21,5 @@ class UserCommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Content, ContentAdmin)
-admin.site.register(UserInfo, )
+admin.site.register(Profile, )
 admin.site.register(UserComment, UserCommentAdmin)
