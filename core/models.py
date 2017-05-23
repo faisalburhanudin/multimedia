@@ -55,6 +55,9 @@ class Content(models.Model):
     def get_absolute_url(self):
         return "/content/%i" % self.id
 
+    def __str__(self):
+        return "%s" % self.title
+
 
 class UserComment(models.Model):
     text = models.CharField(max_length=500)
@@ -62,6 +65,9 @@ class UserComment(models.Model):
     author = models.ForeignKey(User)
 
     content = models.ForeignKey(Content)
+
+    def __str__(self):
+        return self.text
 
 
 class UserView(models.Model):

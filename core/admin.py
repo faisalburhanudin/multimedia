@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from core.models import Content, UserInfo
+from core.models import Content, UserInfo, UserComment
 
 
 def avatar_tag(obj):
@@ -15,5 +15,11 @@ def content_img_tag(obj):
 class ContentAdmin(admin.ModelAdmin):
     list_display = ('title', content_img_tag, 'author')
 
+
+class UserCommentAdmin(admin.ModelAdmin):
+    list_display = ('text', 'author', 'content')
+
+
 admin.site.register(Content, ContentAdmin)
 admin.site.register(UserInfo, )
+admin.site.register(UserComment, UserCommentAdmin)
