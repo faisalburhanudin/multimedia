@@ -23,8 +23,6 @@ class UserLoginView(View):
             return render(request, "login.html", {"login_invalid": True})
 
 
-
-
 def logout_view(request):
     """Logout user
     
