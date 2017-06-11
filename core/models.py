@@ -55,6 +55,10 @@ class Content(models.Model):
         """Get total like in content"""
         return UserLike.objects.filter(content=self.id).count()
 
+    @property
+    def attachment_ext(self):
+        return self.attachment.file.name.split(".")[-1]
+
     def get_absolute_url(self):
         return "/content/%i" % self.id
 

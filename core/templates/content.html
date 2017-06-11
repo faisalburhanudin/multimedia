@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+
 {% block content %}
     <div class="row">
         <div class="col-md-8">
-            <video width="100%" controls>
-                <source src="{{ content.attachment.url }}" type="video/mp4">
-            </video>
+            {% if content.attachment_ext == "mp4" %}
+                {% include "content/video.html" %}
+            {% elif content.attachment_ext == "swf" %}
+                {% include "content/swf.html" %}
+            {% elif content.attachment_ext == "jpg" %}
+                {% include "content/jpg.html" %}
+            {% endif %}
         </div>
         <div class="col-md-4">
             <h3 class="title" style="margin-top: 0;">
@@ -29,7 +34,7 @@
                 {% for comment in comments %}
                     <li>
                         <p>{{ comment.text }} <a href="" class="pull-right">{{ comment.author.username }}</a></p>
-                    <hr>
+                        <hr>
                     </li>
                 {% endfor %}
             </ul>
