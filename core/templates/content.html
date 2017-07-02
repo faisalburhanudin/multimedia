@@ -30,6 +30,12 @@
                 <i class="material-icons">favorite</i>
             </button>
 
+            <form action="/comment?content_id={{ content.id }}" method="post">
+                {% csrf_token %}
+                <textarea name="text" class="form-control" placeholder="Type your comment here" rows="3"></textarea>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
             <ul class="list-unstyled" style="margin-top: 20px;">
                 {% for comment in comments %}
                     <li>

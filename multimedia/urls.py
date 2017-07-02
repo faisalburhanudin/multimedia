@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from core.views import home, user_login, content_upload, profile, content
+from core.views import home, user_login, content_upload, profile, content, comment
 from multimedia import settings
 
 urlpatterns = [
@@ -27,7 +27,8 @@ urlpatterns = [
     url(r'^logout', user_login.logout_view, name='logout'),
     url(r'^uploads', content_upload.ContentUploadView.as_view(), name="upload"),
     url(r'^profile', profile.profile_view, name="profile"),
-    url(r'^content/(?P<content_id>[0-9]{0,6})', content.content_view, name="content")
+    url(r'^content/(?P<content_id>[0-9]{0,6})', content.content_view, name="content"),
+    url(r'^comment$', comment.send, name="comment_send")
 ]
 
 if settings.DEBUG:
