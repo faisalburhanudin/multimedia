@@ -9,7 +9,7 @@ def send(request):
     # get content
     content = Content.objects.get(id=content_id)
 
-    similar = UserLike.objects.filter(author=user).all()[0:1]
+    similar = UserLike.objects.filter(author=user)
     if not similar:
         user_like = UserLike()
         user_like.author = user
