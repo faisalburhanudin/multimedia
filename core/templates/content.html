@@ -25,10 +25,10 @@
                 {{ content.total_comment }}
                 <i class="material-icons">comment</i>
             </button>
-            <button type="button" class="btn btn-round">
+            <a type="button" class="btn btn-round" href="{{ link_like }}">
                 {{ content.total_like }}
                 <i class="material-icons">favorite</i>
-            </button>
+            </a>
             {% if request.user.is_authenticated %}
                 <form action="/comment?content_id={{ content.id }}" method="post">
                     {% csrf_token %}

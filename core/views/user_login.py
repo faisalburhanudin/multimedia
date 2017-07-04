@@ -18,7 +18,7 @@ class UserLoginView(View):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("/login")
+            return redirect("/")
         else:
             return render(request, "login.html", {"login_invalid": True})
 
