@@ -1,9 +1,25 @@
+import os
+import tempfile
 import subprocess
 
+from django.core.files import File
 from celery import shared_task
+
+from core.models import Content
 
 
 @shared_task
+def resize(content_id, file_path):
+    fp_output = os.path.join(tempfile.gettempdir(), ".".join(os.path.basename(file_path).split(".")[:-1]) + ".mp4")
+    resize_video_360p(file_path, fp_output)
+
+    filename = os.path.basename(fp_output)
+
+    content = Content.objects.get(id=content_id)
+    with open(fp_output, "rb") as out:
+        content.attachment.save(filename, File(out))
+
+
 def resize_video_360p(fp, fp_output):
     subprocess.call([
         "ffmpeg",
@@ -33,11 +49,10 @@ def resize_video_360p(fp, fp_output):
         # using all cpu
         "-threads", "0",
 
-        # encode audio using libfdk_aac
-        "-codec:a", "libfdk_aac",
-
         # audio bitrate
         "-b:a", "128k",
+
+        "-strict", "-2",
 
         # file path output file
         fp_output

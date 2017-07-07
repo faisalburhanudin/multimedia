@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from core.models import Content
+from core.tasks import resize
 
 
 class ContentUploadView(View):
@@ -28,5 +29,7 @@ class ContentUploadView(View):
         content.attachment = content_file
         content.author = request.user
         content.save()
+
+        resize.delay(content.id, content.attachment.path)
 
         return redirect(content)
