@@ -130,3 +130,5 @@ STATICFILES_DIRS = [
 MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'amqp://guest:guest@localhost:5672//')
