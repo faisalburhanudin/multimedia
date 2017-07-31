@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from core.models import Content, UserComment, UserView
@@ -18,3 +19,13 @@ def content_view(request, content_id):
         "comments": comments,
         "link_like": "/like?content_id=%s" % content_id if request.user.is_authenticated else ''
     })
+
+
+def content_search(request):
+    keyword = request.GET.get("keyword", "")
+    page = request.GET.get("page", "1")
+
+    contents = Content.objects.filter(title__contains=keyword).order_by('-id')
+    paginator = Paginator(contents, 21)
+
+    return render(request, "home.html", {'contents': paginator.page(page)})

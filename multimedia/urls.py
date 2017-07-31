@@ -29,7 +29,8 @@ urlpatterns = [
     url(r'^profile', profile.profile_view, name="profile"),
     url(r'^content/(?P<content_id>[0-9]{0,6})', content.content_view, name="content"),
     url(r'^comment$', comment.send),
-    url(r'^like$', like.send)
+    url(r'^like$', like.send),
+    url(r'^search$', content.content_search)
 ]
 
 if settings.DEBUG:
