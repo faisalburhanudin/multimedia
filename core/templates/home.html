@@ -1,48 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="tab-content gallery">
-    <div class="tab-pane active">
-        <div class="row">
-            {% for content in contents %}
-            <div class="col-md-4" style="margin-bottom: 10px; text-align: center">
-                <img style="margin: 0 auto" class="img-rounded img-raised img-responsive"
-                     src="{{ content.image_320x220.url }}"
-                     alt="{{ content.title }}">
-                <h3 class="title">
-                    <a href="{{ content.get_absolute_url }}">{{ content.title }}</a>
-                </h3>
-                <p class="description">
-                    {{ content.description }}
-                </p>
-                <h4>
-                    <a href="{% url 'profile' %}?username={{ content.author.username }}">{{ content.author.username }}</a>
-                </h4>
-                <button type="button" class="btn btn-round">
-                    {{ content.total_comment }}
-                    <i class="material-icons">comment</i>
-                </button>
-                <button type="button" class="btn btn-round">
-                    {{ content.total_like }}
-                    <i class="material-icons">favorite</i>
-                </button>
+    <div class="tab-content gallery">
+        <div class="tab-pane active">
+            <div class="row">
+                {% for content in contents %}
+                    <div class="col-md-4" style="margin-bottom: 10px; text-align: center">
+                        <img style="margin: 0 auto" class="img-rounded img-raised img-responsive"
+                             src="{{ content.image_320x220.url }}"
+                             alt="{{ content.title }}">
+                        <h3 class="title">
+                            <a href="{{ content.get_absolute_url }}">{{ content.title }}</a>
+                        </h3>
+                        <p class="description">
+                            {{ content.description }}
+                        </p>
+                        <h4>
+                            <a href="{% url 'profile' %}?username={{ content.author.username }}">{{ content.author.username }}</a>
+                        </h4>
+                        <button type="button" class="btn btn-round">
+                            {{ content.total_comment }}
+                            <i class="material-icons">comment</i>
+                        </button>
+                        <button type="button" class="btn btn-round">
+                            {{ content.total_like }}
+                            <i class="material-icons">favorite</i>
+                        </button>
 
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
-<ul class="pagination pagination-primary pull-right">
-    {% if contents.has_previous %}
-    <li><a href="#"><</a></li>
-    {% endif %}
-    <li class="active">
-        <a href="#">
-            {{ contents.number }}
-        </a>
-    </li>
-    {% if contents.has_next %}
-    <li><a href="#">></a></li>
-    {% endif %}
-</ul>
+    <ul class="pagination pagination-primary pull-right">
+        {% include pagination %}
+    </ul>
 {% endblock %}

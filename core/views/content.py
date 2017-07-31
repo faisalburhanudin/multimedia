@@ -28,4 +28,8 @@ def content_search(request):
     contents = Content.objects.filter(title__contains=keyword).order_by('-id')
     paginator = Paginator(contents, 21)
 
-    return render(request, "home.html", {'contents': paginator.page(page)})
+    return render(request, "home.html", {
+        'contents': paginator.page(page),
+        'pagination': 'pagination_search.html',
+        'keyword': keyword
+    })

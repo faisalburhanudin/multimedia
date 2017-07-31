@@ -11,4 +11,7 @@ def home(request):
     contents = Content.objects.order_by('-id')
     paginator = Paginator(contents, 21)
 
-    return render(request, "home.html", {'contents': paginator.page(page)})
+    return render(request, "home.html", {
+        'contents': paginator.page(page),
+        'pagination': 'pagination_home.html'
+    })

@@ -1,0 +1,15 @@
+    {% if contents.has_previous %}
+        <li>
+            <a href="?page={{ contents.previous_page_number }}">{{ contents.previous_page_number }}</a>
+        </li>
+    {% endif %}
+    <li class="active">
+        <a href="#">
+            {{ contents.number }}
+        </a>
+    </li>
+    {% if contents.has_next %}
+        <li>
+            <a href="?page={{ contents.next_page_number }}">{{ contents.next_page_number }}</a>
+        </li>
+    {% endif %}
