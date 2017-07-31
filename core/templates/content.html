@@ -3,11 +3,11 @@
 {% block content %}
     <div class="row">
         <div class="col-md-8">
-            {% if content.attachment_ext == "mp4" %}
+            {% if content_type == "video" %}
                 {% include "content/video.html" %}
-            {% elif content.attachment_ext == "swf" %}
+            {% elif content_type == "swf" %}
                 {% include "content/swf.html" %}
-            {% elif content.attachment_ext == "jpg" %}
+            {% elif content_type == "image" %}
                 {% include "content/jpg.html" %}
             {% endif %}
         </div>

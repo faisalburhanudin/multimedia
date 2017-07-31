@@ -17,7 +17,8 @@ def content_view(request, content_id):
     return render(request, "content.html", {
         "content": content,
         "comments": comments,
-        "link_like": "/like?content_id=%s" % content_id if request.user.is_authenticated else ''
+        "link_like": "/like?content_id=%s" % content_id if request.user.is_authenticated else '',
+        'content_type': content.content_type.split('/')[0]
     })
 
 

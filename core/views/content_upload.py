@@ -28,8 +28,11 @@ class ContentUploadView(View):
         content.image = thumbnail
         content.attachment = content_file
         content.author = request.user
+        content.content_type = content_file.content_type
         content.save()
 
-        resize.delay(content.id, content.attachment.path)
+        file_type = content_file.content_type.split('/')[0]
+        if file_type == "video":
+            resize.delay(content.id, content.attachment.path)
 
         return redirect(content)

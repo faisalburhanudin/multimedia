@@ -17,6 +17,7 @@ def resize(content_id, file_path):
 
     content = Content.objects.get(id=content_id)
     with open(fp_output, "rb") as out:
+        content.content_type = "video/mp4"
         content.attachment.save(filename, File(out))
 
 

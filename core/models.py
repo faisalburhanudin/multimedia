@@ -38,6 +38,8 @@ class Content(models.Model):
 
     attachment = models.FileField(upload_to='attachments')
 
+    content_type = models.CharField(max_length=10, default="")
+
     author = models.ForeignKey(User)
 
     @property
