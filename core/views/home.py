@@ -8,7 +8,7 @@ from core.models import Content
 def home(request):
     page = request.GET.get("page", 1)
 
-    contents = Content.objects.all()
+    contents = Content.objects.order_by('-id')
     paginator = Paginator(contents, 21)
 
     return render(request, "home.html", {'contents': paginator.page(page)})
