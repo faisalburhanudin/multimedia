@@ -21,11 +21,11 @@
             <h4>
                 <a href="{% url 'profile' %}?username={{ content.author.username }}">{{ content.author.username }}</a>
             </h4>
-            <button type="button" class="btn btn-round">
+            <button type="button" class="btn btn-round btn-sm">
                 {{ content.total_comment }}
                 <i class="material-icons">comment</i>
             </button>
-            <a type="button" class="btn btn-round" href="{{ link_like }}">
+            <a type="button" class="btn btn-round btn-sm {{ is_like|yesno:",btn-danger," }}btn-danger" href="{{ link_like }}">
                 {{ content.total_like }}
                 <i class="material-icons">favorite</i>
             </a>

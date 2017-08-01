@@ -14,10 +14,19 @@ def content_view(request, content_id):
         user_view.content = content
         user_view.save()
 
+    is_like = content.is_like(request.user)
+    link_like = ''
+    if request.user.is_authenticated:
+        if is_like:
+            link_like = "/unlike?content_id=%s" % content_id
+        else:
+            link_like = '/like?content_id=%s' % content_id
+
     return render(request, "content.html", {
         "content": content,
         "comments": comments,
-        "link_like": "/like?content_id=%s" % content_id if request.user.is_authenticated else '',
+        "link_like": link_like,
+        'is_like': is_like,
         'content_type': content.content_type.split('/')[0]
     })
 

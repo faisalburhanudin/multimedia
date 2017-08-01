@@ -46,6 +46,10 @@ class Content(models.Model):
 
     author = models.ForeignKey(User)
 
+    def is_like(self, user: User) -> bool:
+        """Check if user like"""
+        return bool(UserLike.objects.filter(content=self, author=user).count())
+
     @property
     def total_comment(self) -> int:
         """Get total comment in content"""
