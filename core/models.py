@@ -22,6 +22,10 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+    @staticmethod
+    def get_absolute_url():
+        return "/profile"
+
 
 class Content(models.Model):
     title = models.CharField(max_length=80)
