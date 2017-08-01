@@ -1,31 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-    <form class="form" method="post" action="" enctype="multipart/form-data" style="width: 500px; margin: 0 auto;">
-        {% csrf_token %}
-        <div class="header header-primary text-center">
-            <h4>Upload content</h4>
-        </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <div class="card">
+                <form class="form" method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="header header-primary text-center">
+                        <h4>Upload content</h4>
+                    </div>
 
-        <div class="form-group label-floating">
-            <label class="control-label" for="title">Title</label>
-            <input name="title" type="text" class="form-control" id="title" required/>
-        </div>
+                    <div class="content">
+                        <div class="form-group label-floating">
+                            <label class="control-label" for="title">Title</label>
+                            <input name="title" type="text" class="form-control" id="title" required/>
+                        </div>
 
-        <div class="form-group label-floating">
-            <label class="control-label" for="description">Description</label>
-            <textarea name="description" cols="8" class="form-control" id="description" required></textarea>
-        </div>
+                        <div class="form-group label-floating">
+                            <label class="control-label" for="description">Description</label>
+                            <textarea name="description" cols="8" class="form-control" id="description"
+                                      required></textarea>
+                        </div>
 
-        <div class="form-group">
-            <label class="btn btn-default text-info" for="thumbnail">Thumbnail</label>
-            <input name="thumbnail" type="file" class="form-control" id="thumbnail" required>
-        </div>
+                        <div class="form-group">
+                            <label class="btn btn-default text-info" for="thumbnail" style="width: 100%">Thumbnail</label>
+                            <input name="thumbnail" type="file" class="form-control" id="thumbnail" required>
+                        </div>
 
-        <div class="form-group">
-            <label class="btn btn-default text-info" for="content">Content</label>
-            <input name="content" type="file" class="form-control" id="content" required>
-        </div>
+                        <div class="form-group">
+                            <label class="btn btn-default text-info" for="content" style="width: 100%">Content</label>
+                            <input name="content" type="file" class="form-control" id="content" required>
+                        </div>
 
-        <button type="submit" class="btn btn-info">Submit</button>
-    </form>
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
